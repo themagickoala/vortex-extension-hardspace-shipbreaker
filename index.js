@@ -1,5 +1,5 @@
 const path = require('path');
-const { fs, log, util } = require('vortex-api');
+const { fs, util } = require('vortex-api');
 
 const GAME_ID = 'hardspaceshipbreaker';
 const STEAMAPP_ID = '1161580';
@@ -25,7 +25,9 @@ function main(context) {
         queryModPath: () => 'BepInEx/plugins',
         logo: 'assets/logo.jpg',
         executable: () => 'Shipbreaker.exe',
-        requiredFiles: [],
+        requiredFiles: [
+            'Shipbreaker.exe',
+        ],
         setup: (discovery) => {
             context.once(() => alert(discovery.path));
             prepareForModding(discovery);
